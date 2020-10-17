@@ -1,0 +1,166 @@
+<html>
+    <head>
+        <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+        <title>Dynamic Form</title>
+        <script>
+            function showForms(){
+                console.log('1');
+                var selector = document.getElementById('selector');
+                var form1 = document.getElementById('form1');
+                var form2 = document.getElementById('form2');
+                var form3 = document.getElementById('form3');
+                switch (selector.value)
+                {
+                    default:
+                    form1.style.display = 'none';
+                    form2.style.display = 'none';
+                    form3.style.display = 'none';                    
+                    break;
+                    case 'General Enquiry':
+                    form1.style.display = 'block';
+                    form2.style.display = 'none';
+                    form3.style.display = 'none';                    
+                    break;
+                    case 'Becoming a Mentee':
+                    form1.style.display = 'none';
+                    form2.style.display = 'block';
+                    form3.style.display = 'none';                    
+                    break;
+                    case 'Becoming a Mentor':
+                    form1.style.display = 'none';
+                    form2.style.display = 'none';
+                    form3.style.display = 'block';                    
+                    break;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <select id='selector' onChange='showForms();'>
+            <option value='' selected='selected'></option>
+            <option value='General Enquiry'>General Enquiry</option>
+            <option value='Becoming a Mentee'>Becoming a Mentee</option>
+            <option value='Becoming a Mentor'>Becoming a Mentor</option>
+        </select>
+        <div id='form1' style='display:none;'>
+            <h1>General Enquiry</h1>
+            <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+
+                <input type=hidden name="oid" value="<YOUR ORGANISATION ID>">
+                <input type=hidden name="retURL" value="thankyou.html">
+                
+                <label for="salutation">Salutation</label><select  id="salutation" name="salutation"><option value="">--None--</option><option value="Mr.">Mr.</option>
+                <option value="Ms.">Ms.</option>
+                <option value="Mrs.">Mrs.</option>
+                <option value="Dr.">Dr.</option>
+                <option value="Prof.">Prof.</option>
+                </select><br>
+                
+                <label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+                
+                <label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+                
+                <label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+                
+                <label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+                
+                <label for="company">Company</label><input  id="company" maxlength="40" name="company" size="20" type="text" /><br>
+                
+                <label for="state">State/Province</label><input  id="state" maxlength="20" name="state" size="20" type="text" /><br>
+                
+                <label for="description">Description</label><textarea name="description"></textarea><br>
+                
+                <label for="lead_source">Lead Source</label><select  id="lead_source" name="lead_source"><option value="">--None--</option><option value="Web">Web</option>
+                <option value="Phone Inquiry">Phone Inquiry</option>
+                <option value="Partner Referral">Partner Referral</option>
+                <option value="Purchased List">Purchased List</option>
+                <option value="Other">Other</option>
+                </select><br>
+                
+                <input type="submit" name="submit">
+                
+                </form>
+        </div>
+        <div id='form2' style='display:none;'>
+            <h1>Becoming a Mentee</h1>
+            <p>To qualify as a mentee, you must be the leader of a registered charity and your organisation must have a governance structure including a Board of Directors to which you report.</p>
+            <label for='confirmation'>I confirm that I am the leader or CEO of a registered charity and report directly to a Board of Directors.</label><input type='checkbox'><br>
+            <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+
+                <input type=hidden name="oid" value="<YOUR ORGANISATION ID>">
+                <input type=hidden name="retURL" value="thankyou.html">
+                
+                <label for="salutation">Salutation</label><select  id="salutation" name="salutation"><option value="">--None--</option><option value="Mr.">Mr.</option>
+                <option value="Ms.">Ms.</option>
+                <option value="Mrs.">Mrs.</option>
+                <option value="Dr.">Dr.</option>
+                <option value="Prof.">Prof.</option>
+                </select><br>
+                
+                <label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+                
+                <label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+                
+                <label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+                
+                <label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+                
+                <label for="company">Company</label><input  id="company" maxlength="40" name="company" size="20" type="text" /><br>
+                
+                <label for="state">State/Province</label><input  id="state" maxlength="20" name="state" size="20" type="text" /><br>
+                
+                <label for="description">Description</label><textarea name="description"></textarea><br>
+                
+                <label for="lead_source">Lead Source</label><select  id="lead_source" name="lead_source"><option value="">--None--</option><option value="Web">Web</option>
+                <option value="Phone Inquiry">Phone Inquiry</option>
+                <option value="Partner Referral">Partner Referral</option>
+                <option value="Purchased List">Purchased List</option>
+                <option value="Other">Other</option>
+                </select><br>
+                
+                <input type="submit" name="submit">
+                
+                </form>
+        </div>
+        <div id='form3' style='display:none;'>
+            <h1>Becoming a Mentor</h1>
+            <p>Thank you for your interest in becoming a mentor in the Kilfinan Australia CEO Mentoring Community.</p>
+            <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+
+                <input type=hidden name="oid" value="<YOUR ORGANISATION ID>">
+                <input type=hidden name="retURL" value="thankyou.html">
+                
+                <label for="salutation">Salutation</label><select  id="salutation" name="salutation"><option value="">--None--</option><option value="Mr.">Mr.</option>
+                <option value="Ms.">Ms.</option>
+                <option value="Mrs.">Mrs.</option>
+                <option value="Dr.">Dr.</option>
+                <option value="Prof.">Prof.</option>
+                </select><br>
+                
+                <label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+                
+                <label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+                
+                <label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+                
+                <label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+                
+                <label for="company">Company</label><input  id="company" maxlength="40" name="company" size="20" type="text" /><br>
+                
+                <label for="state">State/Province</label><input  id="state" maxlength="20" name="state" size="20" type="text" /><br>
+                
+                <label for="description">Description</label><textarea name="description"></textarea><br>
+                
+                <label for="lead_source">Lead Source</label><select  id="lead_source" name="lead_source"><option value="">--None--</option><option value="Web">Web</option>
+                <option value="Phone Inquiry">Phone Inquiry</option>
+                <option value="Partner Referral">Partner Referral</option>
+                <option value="Purchased List">Purchased List</option>
+                <option value="Other">Other</option>
+                </select><br>
+                
+                <input type="submit" name="submit">
+                
+                </form>
+        </div>
+    </body>
+</html>
